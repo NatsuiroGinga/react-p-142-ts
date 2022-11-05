@@ -9,5 +9,11 @@ export default defineConfig({
         alias: {
             "@": join(__dirname, "src")
         }
+    },
+    server: {
+        port: 8080
+    },
+    preview: {
+        port: 3030
     }
 })
