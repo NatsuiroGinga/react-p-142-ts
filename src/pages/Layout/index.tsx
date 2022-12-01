@@ -35,10 +35,11 @@ const items: MenuProps['items'] = [
 
 const GeekLayout: React.FC = () => {
     const {pathname} = useLocation();
-    const {userStore, loginStore} = useStore();
+    const {userStore, loginStore, channelStore} = useStore();
     useEffect(() => {
+        channelStore.loadChannelList();
         userStore.getUserInfo();
-    }, [userStore]);
+    }, [userStore, channelStore]);
 
     const navigate = useNavigate();
     const onClick: MenuProps['onClick'] = e => {

@@ -1,6 +1,7 @@
 import LoginStore from "@/store/login.Store";
 import {createContext, useContext} from "react";
 import UserStore from "@/store/user.Store";
+import ChannelStore from "@/store/channel.Store";
 
 class RootStore {
 
@@ -8,9 +9,12 @@ class RootStore {
 
     private _userStore: UserStore;
 
+    private _channelStore: ChannelStore;
+
     constructor() {
         this._loginStore = new LoginStore();
         this._userStore = new UserStore();
+        this._channelStore = new ChannelStore();
     }
 
     get loginStore(): LoginStore {
@@ -27,6 +31,14 @@ class RootStore {
 
     set userStore(value: UserStore) {
         this._userStore = value;
+    }
+
+    get channelStore(): ChannelStore {
+        return this._channelStore;
+    }
+
+    set channelStore(value: ChannelStore) {
+        this._channelStore = value;
     }
 }
 
